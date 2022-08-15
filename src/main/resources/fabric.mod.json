@@ -1,0 +1,40 @@
+{
+  "schemaVersion": 1,
+  "id": "advanced_movement",
+  "version": "22.08.14",
+
+  "name": "Advanced Movement",
+  "description": "Adds advanced movement mechanics.",
+  "authors": [
+    "AGNYA Team",
+    "nvb-uy (Development)",
+    "Gonwen (Tester)",
+    "Smol Fofa (BHop Author)"
+  ],
+  "contact": {
+    "homepage": "https://github.com/nvb-uy/",
+    "sources": "https://github.com/nvb-uy/AdvancedMovement"
+  },
+
+  "license": "MIT",
+  "icon": "assets/advanced_movement/icon.png",
+
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "agnya.advanced_movement.AdvMovement"
+    ],
+    "modmenu": [
+      "agnya.advanced_movement.config.Menu"
+    ]
+  },
+  "mixins": [
+    "advanced_movement.mixins.json"
+  ],
+  "depends": {
+    "fabric": "*"
+  },
+  "suggests": {
+    "another-mod": "*"
+  }
+}
