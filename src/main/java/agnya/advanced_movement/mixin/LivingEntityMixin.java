@@ -154,7 +154,7 @@ public abstract class LivingEntityMixin extends Entity {
         if (this.hasStatusEffect(StatusEffects.LEVITATION)) {
             yVel += (0.05D * (this.getStatusEffect(StatusEffects.LEVITATION).getAmplifier() + 1) - preVel.y) * 0.2D;
             this.fallDistance = 0.0F;
-        } else if (this.world.isClient && !this.world.isChunkLoaded(blockPos)) {
+        } else if (this.world.isClient && !this.world.isChunkLoaded(this.getChunkPos().x, this.getChunkPos().z)) {
             yVel = 0.0D;
         } else if (!this.hasNoGravity()) {
             yVel -= gravity;
