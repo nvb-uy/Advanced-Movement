@@ -51,7 +51,7 @@ public abstract class LivingEntityMixin extends Entity {
         //Toggle Strafe
         if (!config.enableStrafing) { return; }
         //Enable for Players only
-        if (config.exclusiveToPlayers && this.getType() != EntityType.PLAYER) { return; }
+        if (config.compatibilityMode && this.getType() != EntityType.PLAYER) { return; }
 
         if (!this.canMoveVoluntarily() && !this.isLogicalSideForUpdatingMovement()) { return; }
 

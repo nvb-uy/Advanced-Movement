@@ -8,10 +8,8 @@ import me.sargunvohra.mcmods.autoconfig1u.annotation.ConfigEntry;
 @Config(name = AdvMovement.MOD_ID)
 public class AMConfig implements ConfigData {    
     public boolean enableStrafing = true;
-    public boolean exclusiveToPlayers = true;
+    
 
-    @ConfigEntry.Gui.Excluded
-    public float maxvelocity = 2.0F; //Maximum speed. (Now it's just for the speedometer colors)
     @ConfigEntry.Gui.Excluded
     public final double gravity = 0.08D;
 
@@ -24,5 +22,5 @@ public class AMConfig implements ConfigData {
     public float airspeedcutoff = 0.2F; //How fast to travel before applying sv_maxairspeed. Intended to be a fix for low-speed air control.
 
     public float maxSpeedMul = 2.2F; //How much to multiply default game's movementSpeed by.
-
+    public boolean compatibilityMode = true;
 }
