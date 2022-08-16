@@ -9,6 +9,7 @@ import me.sargunvohra.mcmods.autoconfig1u.annotation.ConfigEntry;
 public class AMConfig implements ConfigData {    
     public boolean enableStrafing = true;
     
+    public boolean togonkey = true;
 
     @ConfigEntry.Gui.Excluded
     public final double gravity = 0.08D;
