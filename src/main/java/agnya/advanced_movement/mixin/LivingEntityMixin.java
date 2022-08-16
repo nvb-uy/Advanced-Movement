@@ -37,7 +37,7 @@ public abstract class LivingEntityMixin extends Entity {
     @Shadow public abstract boolean isFallFlying();
     @Shadow public abstract boolean isClimbing();
     @Shadow public abstract boolean canMoveVoluntarily();
-    @Shadow public abstract Vec3d method_26318(Vec3d vec3d, float f);
+    //@Shadow public abstract Vec3d method_26318(Vec3d vec3d, float f);
     @Shadow public abstract void updateLimbs(LivingEntity livingEntity, boolean bl);
 
     private boolean wasOnGround;
@@ -52,6 +52,9 @@ public abstract class LivingEntityMixin extends Entity {
         if (!config.enableStrafing) { return; }
         //Enable for Players only
         if (config.compatibilityMode && this.getType() != EntityType.PLAYER) { return; }
+
+        // This could potentially fix crash after dying
+        if (!this.isAlive()) { return; }
 
         if (!this.canMoveVoluntarily() && !this.isLogicalSideForUpdatingMovement()) { return; }
 
@@ -172,7 +175,8 @@ public abstract class LivingEntityMixin extends Entity {
 
     @Inject(method = "jump", at = @At("HEAD"), cancellable = true)
     void jump(CallbackInfo ci) {
-        if (!config.enableStrafing) {return;}
+        if (!config.enableStrafing) { return; }
+        if (!this.isAlive()) { return; }
 
         Vec3d vecFin = this.getVelocity();
         double yVel = this.getJumpVelocity();
