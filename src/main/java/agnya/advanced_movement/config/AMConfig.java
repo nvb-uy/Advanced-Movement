@@ -23,5 +23,6 @@ public class AMConfig implements ConfigData {
     public float airspeedcutoff = 0.2F; //How fast to travel before applying sv_maxairspeed. Intended to be a fix for low-speed air control.
 
     public float maxSpeedMul = 2.2F; //How much to multiply default game's movementSpeed by.
+
     public boolean compatibilityMode = true;
 }
