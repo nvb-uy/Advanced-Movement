@@ -7,6 +7,7 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.text.LiteralText;
 import net.minecraft.text.Text;
+import net.minecraft.util.Rarity;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
 
@@ -15,6 +16,7 @@ public class Speedometer extends Item {
         super(new Item.Settings()
         .group(SpeedometerTab.ADVMOVEMENT)
         .maxCount(1)
+        .rarity(Rarity.UNCOMMON)
         );
     }
 	@Override
@@ -27,10 +29,10 @@ public class Speedometer extends Item {
             }
             
             double vectorialSpeed = new Vec3d(entity.getVelocity().x, 0.0F, entity.getVelocity().z).length();
-            double bpsSpeed = (Math.floor((vectorialSpeed)*100)/100.0D)/5.0D;
+            double bpsSpeed = (Math.floor((vectorialSpeed)*100)/100.0D);
 
             if (entity instanceof PlayerEntity player && world.isClient) {
-                player.sendMessage(new LiteralText("\u00A7a"+bpsSpeed+" blocks/s"), true);
+                player.sendMessage(new LiteralText("\u00A7a"+String.format("%.2f", bpsSpeed)+" blocks/s"), true);
             }
         }
     }
