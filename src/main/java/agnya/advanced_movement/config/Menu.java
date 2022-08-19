@@ -10,7 +10,5 @@ public class Menu implements ModMenuApi {
     @Override
     public ConfigScreenFactory<?> getModConfigScreenFactory() {
         return parent -> AutoConfig.getConfigScreen(AMConfig.class, parent).get();
-
     }
-
 }
