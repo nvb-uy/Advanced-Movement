@@ -8,8 +8,6 @@ import me.shedaniel.autoconfig.annotation.ConfigEntry;
 @Config(name = AdvMovement.MOD_ID)
 public class AMConfig implements ConfigData {    
     public boolean enableStrafing = true;
-    
-    public boolean togonkey = true;
 
     @ConfigEntry.Gui.Excluded
     public final double gravity = 0.08D;
