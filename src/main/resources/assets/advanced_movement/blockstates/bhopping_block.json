@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "": {
+      "model": "advanced_movement:block/bhopping_block"
+    }
+  }
+}

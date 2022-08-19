@@ -12,5 +12,6 @@
   "text.autoconfig.advanced_movement.option.maxSpeedMul": "Default Speed Multiplier",
 
   "itemGroup.advanced_movement.main": "Advanced Movement",
-  "item.advanced_movement.speedometer": "Speedometer"
+  "item.advanced_movement.speedometer": "Speedometer",
+  "item.advanced_movement.bhopping_block": "Bunny Hop Block"
 }
