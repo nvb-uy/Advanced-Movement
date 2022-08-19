@@ -3,6 +3,8 @@ package agnya.advanced_movement.utilities;
 import net.minecraft.block.Block;
 import net.minecraft.block.Material;
 import net.minecraft.entity.Entity;
+import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.text.LiteralText;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
@@ -16,5 +18,15 @@ public class BhoppingBlock extends Block {
     
     public void onSteppedOn(World world, BlockPos pos, Entity entity) {
         // TODO: After the entity touches the block, wait 2 ticks and check if the entity is still touching the block, if so, teleport the entity to their spawnpoint.
+        if (entity instanceof PlayerEntity player) {
+            if (world.isClient) {
+                player.sendMessage(new LiteralText("test"), false);
+            }
+            // TODO: Check stuff
+            
+            if (player.isOnGround() && player.getVelocity().y == 0) {   
+                player.requestRespawn();
+            }
+        } 
     }
 }
