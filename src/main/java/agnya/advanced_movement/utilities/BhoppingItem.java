@@ -1,7 +1,6 @@
 package agnya.advanced_movement.utilities;
 
 import agnya.advanced_movement.speedometer.SpeedometerTab;
-import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.minecraft.block.Block;
 import net.minecraft.client.item.TooltipContext;
 import net.minecraft.item.BlockItem;

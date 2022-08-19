@@ -1,6 +1,7 @@
 package agnya.advanced_movement.utilities;
 
 import net.minecraft.block.Block;
+import net.minecraft.block.BlockState;
 import net.minecraft.block.Material;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.PlayerEntity;
@@ -16,7 +17,7 @@ public class BhoppingBlock extends Block {
         );
     }
     @Override
-    public void SteppedOn(World world, BlockPos pos, Entity entity) {
+    public void onSteppedOn(World world, BlockPos pos, BlockState state, Entity entity) {
         // TODO: After the entity touches the block, wait 2 ticks and check if the entity is still touching the block, if so, teleport the entity to their spawnpoint.
         if (entity instanceof PlayerEntity player) {
             if (world.isClient) {
