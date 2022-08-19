@@ -23,7 +23,7 @@ public class AdvMovement implements ModInitializer {
 	public static final Item SPEEDOMETER = new Speedometer();
 	
 	public static final Block BHOPPING_BLOCK = new BhoppingBlock();
-	public static final BlockItem BHOPPING_BLOCK_ITEM = new BhoppingItem(BHOPPING_BLOCK, null);
+	public static final BlockItem BHOPPING_BLOCK_ITEM = new BhoppingItem(BHOPPING_BLOCK);
 	
 	@Override
 	public void onInitialize() {
