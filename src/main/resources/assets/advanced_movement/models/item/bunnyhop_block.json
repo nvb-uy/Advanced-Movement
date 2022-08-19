@@ -1,5 +1,5 @@
 {
-  "parent": "advanced_movement:block/bhopping_block",
+  "parent": "advanced_movement:block/bunnyhop_block",
   "display": {
     "thirdperson": {
       "rotation": [
