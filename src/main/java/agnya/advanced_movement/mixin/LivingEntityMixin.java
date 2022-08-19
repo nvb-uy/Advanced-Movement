@@ -182,7 +182,9 @@ public abstract class LivingEntityMixin extends Entity {
         if (!this.isAlive()) { return; }
 
         if (config.manualJump) {
-            KeyBinding.setKeyPressed(InputUtil.fromTranslationKey("key.jump"), false);
+            if (this.world.isClient) {
+                KeyBinding.setKeyPressed(InputUtil.fromTranslationKey("key.keyboard.space"), false);
+            }
         }
 
         Vec3d vecFin = this.getVelocity();
