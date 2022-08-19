@@ -1,4 +1,4 @@
-package agnya.advanced_movement.utilities;
+package agnya.advanced_movement.utilities.platform;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;

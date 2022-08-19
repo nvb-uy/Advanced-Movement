@@ -1,4 +1,4 @@
-package agnya.advanced_movement.utilities;
+package agnya.advanced_movement.utilities.platform;
 
 import agnya.advanced_movement.speedometer.SpeedometerTab;
 import net.minecraft.block.Block;
