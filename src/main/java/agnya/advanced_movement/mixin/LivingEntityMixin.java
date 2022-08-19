@@ -49,22 +49,32 @@ public abstract class LivingEntityMixin extends Entity {
         super(type, world);
     }
 
+    private void manualJumping() {
+        if (config.manualJump) {
+            if (this.world.isClient) {
+                KeyBinding.setKeyPressed(InputUtil.fromTranslationKey("key.keyboard.space"), false);
+            }
+        }
+    }
+
     @Inject(method = "travel", at = @At("HEAD"), cancellable = true)
     public void travel(Vec3d movementInput, CallbackInfo ci) {
+        // Fix crash when dying
+        if (!this.isAlive()) { return; }
+        
+        // Cancels autojump if manual jumping is enabled in config
+        manualJumping();
         //Toggle Strafe
         if (!config.enableStrafing) { return; }
         //Enable for Players only
         if (config.compatibilityMode && this.getType() != EntityType.PLAYER) { return; }
-
-        // This could potentially fix crash after dying
-        if (!this.isAlive()) { return; }
 
         if (!this.canMoveVoluntarily() && !this.isLogicalSideForUpdatingMovement()) { return; }
 
         //Cancel override if not in plain walking state.
         if (this.isTouchingWater() || this.isInLava() || this.isFallFlying()) { return; }
 
-
+        
         //I don't have a better clue how to do this atm.
         LivingEntity self = (LivingEntity) this.world.getEntityById(this.getId());
 
@@ -178,14 +188,12 @@ public abstract class LivingEntityMixin extends Entity {
 
     @Inject(method = "jump", at = @At("HEAD"), cancellable = true)
     void jump(CallbackInfo ci) {
-        if (!config.enableStrafing) { return; }
         if (!this.isAlive()) { return; }
 
-        if (config.manualJump) {
-            if (this.world.isClient) {
-                KeyBinding.setKeyPressed(InputUtil.fromTranslationKey("key.keyboard.space"), false);
-            }
-        }
+        // Cancels autojump if manual jumping is enabled in config
+        manualJumping();
+
+        if (!config.enableStrafing) { return; }
 
         Vec3d vecFin = this.getVelocity();
         double yVel = this.getJumpVelocity();
