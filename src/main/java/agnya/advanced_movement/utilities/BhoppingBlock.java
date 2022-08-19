@@ -25,9 +25,10 @@ public class BhoppingBlock extends Block {
             }
             // TODO: Check stuff
             
-            if (player.isOnGround() && player.getVelocity().y == 0) {   
-                player.requestRespawn();
-            }
+            /*
+            if (!Keyboard.isKeyDown(KeyBindingHelper.getBoundKeyOf(KeyBinding.MOVEMENT_CATEGORY.))) {
+                // todo
+            } */
         } 
     }
 }

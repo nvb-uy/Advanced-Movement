@@ -32,7 +32,7 @@ public class AdvMovement implements ModInitializer {
 
 		Registry.register(Registry.ITEM, new Identifier(MOD_ID, "speedometer"), SPEEDOMETER);
 
-		Registry.register(Registry.BLOCK, new Identifier(MOD_ID, "bunnyhop_block"), BHOPPING_BLOCK);
-		Registry.register(Registry.ITEM, new Identifier(MOD_ID, "bunnyhop_block"), BHOPPING_BLOCK_ITEM);
+		Registry.register(Registry.BLOCK, new Identifier(MOD_ID, "bunnyhop_platform"), BHOPPING_BLOCK);
+		Registry.register(Registry.ITEM, new Identifier(MOD_ID, "bunnyhop_platform"), BHOPPING_BLOCK_ITEM);
 	}
 }

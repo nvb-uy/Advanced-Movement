@@ -1,0 +1,12 @@
+{
+  "parent": "block/cube",
+  "textures": {
+    "down": "advanced_movementblock/bhop",
+    "up": "advanced_movement:block/bhop",
+    "north": "advanced_movement:block/bhop",
+    "east": "advanced_movement:block/bhop",
+    "south": "advanced_movementblock/bhop",
+    "west": "advanced_movementblock/bhop",
+    "particle": "advanced_movement:block/bhop"
+  }
+}
