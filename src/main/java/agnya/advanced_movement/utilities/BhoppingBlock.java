@@ -15,8 +15,8 @@ public class BhoppingBlock extends Block {
         .strength(1.0F, 1.0F)
         );
     }
-    
-    public void onSteppedOn(World world, BlockPos pos, Entity entity) {
+    @Override
+    public void SteppedOn(World world, BlockPos pos, Entity entity) {
         // TODO: After the entity touches the block, wait 2 ticks and check if the entity is still touching the block, if so, teleport the entity to their spawnpoint.
         if (entity instanceof PlayerEntity player) {
             if (world.isClient) {
