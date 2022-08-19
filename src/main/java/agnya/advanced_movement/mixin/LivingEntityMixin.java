@@ -1,6 +1,8 @@
 package agnya.advanced_movement.mixin;
 
 import me.shedaniel.autoconfig.AutoConfig;
+import net.minecraft.client.option.KeyBinding;
+import net.minecraft.client.util.InputUtil;
 import net.minecraft.entity.*;
 import net.minecraft.entity.effect.StatusEffect;
 import net.minecraft.entity.effect.StatusEffectInstance;
@@ -10,6 +12,7 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
+
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
@@ -177,6 +180,10 @@ public abstract class LivingEntityMixin extends Entity {
     void jump(CallbackInfo ci) {
         if (!config.enableStrafing) { return; }
         if (!this.isAlive()) { return; }
+
+        if (config.manualJump) {
+            KeyBinding.setKeyPressed(InputUtil.fromTranslationKey("key.jump"), false);
+        }
 
         Vec3d vecFin = this.getVelocity();
         double yVel = this.getJumpVelocity();
