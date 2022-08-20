@@ -49,21 +49,12 @@ public abstract class LivingEntityMixin extends Entity {
         super(type, world);
     }
 
-    private void manualJumping() {
-        if (config.manualJump) {
-            if (this.world.isClient) {
-                KeyBinding.setKeyPressed(InputUtil.fromTranslationKey("key.keyboard.space"), false);
-            }
-        }
-    }
 
     @Inject(method = "travel", at = @At("HEAD"), cancellable = true)
     public void travel(Vec3d movementInput, CallbackInfo ci) {
         // Fix crash when dying
         if (!this.isAlive()) { return; }
-        
-        // Cancels autojump if manual jumping is enabled in config
-        manualJumping();
+    
         //Toggle Strafe
         if (!config.enableStrafing) { return; }
         //Enable for Players only
@@ -80,7 +71,13 @@ public abstract class LivingEntityMixin extends Entity {
 
         //Disable on creative flying.
         if (this.getType() == EntityType.PLAYER && isFlying((PlayerEntity) self)) { return; }
-
+        
+        // Cancels autojump if manual jumping is enabled in config
+        if (config.manualJump) {
+            if (this.getType() == EntityType.PLAYER && this.world.isClient && !isFlying((PlayerEntity) self)) {
+                KeyBinding.setKeyPressed(InputUtil.fromTranslationKey("key.keyboard.space"), false);
+            }
+        }
         //Reverse multiplication done by the function that calls this one.
         this.sidewaysSpeed /= 0.98F;
         this.forwardSpeed /= 0.98F;
@@ -191,7 +188,11 @@ public abstract class LivingEntityMixin extends Entity {
         if (!this.isAlive()) { return; }
 
         // Cancels autojump if manual jumping is enabled in config
-        manualJumping();
+        if (config.manualJump) {
+            if (this.getType() == EntityType.PLAYER && this.world.isClient) {
+                KeyBinding.setKeyPressed(InputUtil.fromTranslationKey("key.keyboard.space"), false);
+            }
+        }
 
         if (!config.enableStrafing) { return; }
 
