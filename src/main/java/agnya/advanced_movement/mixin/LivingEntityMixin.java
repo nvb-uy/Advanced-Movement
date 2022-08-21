@@ -187,7 +187,7 @@ public abstract class LivingEntityMixin extends Entity {
         if (config.general.crouchJump) {
             if (this.getType() == EntityType.PLAYER && this.isSneaking()) {
                 double cx = this.getVelocity().x; double cz = this.getVelocity().z;
-                double crouchjump = this.getVelocity().y*config.crouchjumppower;
+                double crouchjump = this.getJumpVelocity()*config.crouchjumppower;
                 this.setVelocity(cx, crouchjump, cz);
             }
         }
