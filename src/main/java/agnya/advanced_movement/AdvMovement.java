@@ -21,9 +21,10 @@ public class AdvMovement implements ModInitializer {
 	public static final Logger LOGGER = LoggerFactory.getLogger(MOD_ID);
 	
 	public static final Item SPEEDOMETER = new Speedometer();
-	
+	/* TODO: PARKOUR STUFF
 	public static final Block BHOPPING_BLOCK = new BhoppingBlock();
 	public static final BlockItem BHOPPING_BLOCK_ITEM = new BhoppingItem(BHOPPING_BLOCK);
+	*/
 	
 	@Override
 	public void onInitialize() {
@@ -31,8 +32,9 @@ public class AdvMovement implements ModInitializer {
 		LOGGER.info("Advanced Movement Loaded Sucessfully!");
 
 		Registry.register(Registry.ITEM, new Identifier(MOD_ID, "speedometer"), SPEEDOMETER);
-
+		/* PARKOUR STUFF
 		Registry.register(Registry.BLOCK, new Identifier(MOD_ID, "bunnyhop_platform"), BHOPPING_BLOCK);
 		Registry.register(Registry.ITEM, new Identifier(MOD_ID, "bunnyhop_platform"), BHOPPING_BLOCK_ITEM);
+		*/
 	}
 }
