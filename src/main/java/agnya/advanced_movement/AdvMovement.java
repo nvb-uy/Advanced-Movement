@@ -5,13 +5,9 @@ import org.slf4j.LoggerFactory;
 
 import agnya.advanced_movement.config.AMConfig;
 import agnya.advanced_movement.speedometer.Speedometer;
-import agnya.advanced_movement.utilities.platform.BhoppingBlock;
-import agnya.advanced_movement.utilities.platform.BhoppingItem;
 import me.shedaniel.autoconfig.AutoConfig;
 import me.shedaniel.autoconfig.serializer.GsonConfigSerializer;
 import net.fabricmc.api.ModInitializer;
-import net.minecraft.block.Block;
-import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
