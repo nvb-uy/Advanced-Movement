@@ -12,6 +12,7 @@
   "text.autoconfig.advanced_movement.option.default.maxairspeed": "Max Air Velocity",
   "text.autoconfig.advanced_movement.option.default.airspeedcutoff": "Air Speed Cutoff",
   "text.autoconfig.advanced_movement.option.default.maxSpeedMul": "Default Speed Multiplier",
+  "text.autoconfig.advanced_movement.option.default.crouchjumppower": "Crouch Jump Multiplier",
   
   "text.autoconfig.advanced_movement.category.general": "Movement Mechanics",
   "text.autoconfig.advanced_movement.category.default": "Properties",

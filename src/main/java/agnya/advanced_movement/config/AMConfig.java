@@ -18,9 +18,13 @@ public class AMConfig implements ConfigData {
     public float maxairspeed = 0.08F; //Maximum speed you can move in air without influence. Also determines how fast you gain bhop speed.
     
     public float maxSpeedMul = 2.2F; //How much to multiply default game's movementSpeed by.
+    
+    public float crouchjumppower = 1.1F; //How much to multiply default game's jump power by.
 
     @ConfigEntry.Gui.Excluded
     public final double gravity = 0.08D;
     @ConfigEntry.Gui.Excluded
     public float airspeedcutoff = 0.2F; //How fast to travel before applying sv_maxairspeed. Intended to be a fix for low-speed air control.
+
+    
 }

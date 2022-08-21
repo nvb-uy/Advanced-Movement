@@ -48,8 +48,6 @@ public abstract class LivingEntityMixin extends Entity {
     public LivingEntityMixin(EntityType<?> type, World world) {
         super(type, world);
     }
-
-
     @Inject(method = "travel", at = @At("HEAD"), cancellable = true)
     public void travel(Vec3d movementInput, CallbackInfo ci) {
         // Fix crash when dying
@@ -134,14 +132,6 @@ public abstract class LivingEntityMixin extends Entity {
             Vec3d accelDir = moveDir.multiply(Math.max(accelVel, 0.0F));
 
             this.setVelocity(accelVec.add(accelDir));
-
-            //This method isn't friendly.
-            //this.method_26318(moveDir,(float) accelVel);
-
-            //Too much effort to implement a speedcap.
-            //if (accelVec.lengthSquared() > (config.sv_maxvelocity * config.sv_maxvelocity)) {
-            //    this.setVelocity(this.getVelocity().normalize().multiply(config.sv_maxvelocity));
-            //}
         }
 
         this.setVelocity(this.applyClimbingSpeed(this.getVelocity()));
@@ -187,10 +177,18 @@ public abstract class LivingEntityMixin extends Entity {
     void jump(CallbackInfo ci) {
         if (!this.isAlive()) { return; }
 
-        // Cancels autojump if manual jumping is enabled in config
+        // Cancels autojump if manual jumping is enabled in config.
         if (config.general.manualJump) {
             if (this.getType() == EntityType.PLAYER && this.world.isClient) {
                 KeyBinding.setKeyPressed(InputUtil.fromTranslationKey("key.keyboard.space"), false);
+            }
+        }
+        // Increases jump a little bit if jumping while crouching.
+        if (config.general.crouchJump) {
+            if (this.getType() == EntityType.PLAYER && this.isSneaking()) {
+                double cx = this.getVelocity().x; double cz = this.getVelocity().z;
+                double crouchjump = this.getVelocity().y*config.crouchjumppower;
+                this.setVelocity(cx, crouchjump, cz);
             }
         }
 
