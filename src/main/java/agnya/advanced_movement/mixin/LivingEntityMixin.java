@@ -56,9 +56,9 @@ public abstract class LivingEntityMixin extends Entity {
         if (!this.isAlive()) { return; }
     
         //Toggle Strafe
-        if (!config.enableStrafing) { return; }
+        if (!config.general.enableStrafing) { return; }
         //Enable for Players only
-        if (config.compatibilityMode && this.getType() != EntityType.PLAYER) { return; }
+        if (config.general.compatibilityMode && this.getType() != EntityType.PLAYER) { return; }
 
         if (!this.canMoveVoluntarily() && !this.isLogicalSideForUpdatingMovement()) { return; }
 
@@ -73,7 +73,7 @@ public abstract class LivingEntityMixin extends Entity {
         if (this.getType() == EntityType.PLAYER && isFlying((PlayerEntity) self)) { return; }
         
         // Cancels autojump if manual jumping is enabled in config
-        if (config.manualJump) {
+        if (config.general.manualJump) {
             if (this.getType() == EntityType.PLAYER && this.world.isClient && !isFlying((PlayerEntity) self)) {
                 KeyBinding.setKeyPressed(InputUtil.fromTranslationKey("key.keyboard.space"), false);
             }
@@ -188,13 +188,13 @@ public abstract class LivingEntityMixin extends Entity {
         if (!this.isAlive()) { return; }
 
         // Cancels autojump if manual jumping is enabled in config
-        if (config.manualJump) {
+        if (config.general.manualJump) {
             if (this.getType() == EntityType.PLAYER && this.world.isClient) {
                 KeyBinding.setKeyPressed(InputUtil.fromTranslationKey("key.keyboard.space"), false);
             }
         }
 
-        if (!config.enableStrafing) { return; }
+        if (!config.general.enableStrafing) { return; }
 
         Vec3d vecFin = this.getVelocity();
         double yVel = this.getJumpVelocity();
