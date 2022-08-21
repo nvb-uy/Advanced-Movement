@@ -32,7 +32,7 @@
     "advanced_movement.mixins.json"
   ],
   "depends": {
-    "fabric-api": "*"
+    "fabric": "*"
   },
   "suggests": {
     "modmenu": "*"
