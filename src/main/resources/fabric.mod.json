@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "id": "advanced_movement",
-  "version": "22.08.19-MC1.18.x_1.19.x",
+  "version": "22.08.20-MC1.18.x_1.19.x",
 
   "name": "Advanced Movement",
   "description": "Adds advanced movement mechanics.",
